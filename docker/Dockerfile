@@ -20,7 +20,7 @@ WORKDIR /opencv-3.4.0
 RUN mkdir build
 WORKDIR /opencv-3.4.0/build
 RUN cmake -DBUILD_EXAMPLES=OFF ..
-RUN make -j4
+RUN make
 RUN make install
 RUN ldconfig
 
@@ -41,9 +41,9 @@ RUN git clone https://github.com/madhawav/YOLO3-4-Py.git
 WORKDIR /YOLO3-4-Py
 RUN pip3 install pkgconfig
 RUN pip3 install cython
-RUN python3 setup.py build_ext --inplace
+#RUN python3 setup.py build_ext --inplace
 
 ## Run test ##
-RUN sh download_models.sh
-ADD ./docker_demo.py /YOLO3-4-Py/docker_demo.py
-CMD ["python3", "docker_demo.py"]
+#RUN sh download_models.sh
+#ADD ./docker_demo.py /YOLO3-4-Py/docker_demo.py
+#CMD ["python3", "docker_demo.py"]
